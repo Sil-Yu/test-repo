@@ -1,0 +1,9 @@
+#!/bin/sh
+echo Find "$2" from List:$1
+
+while read line
+do
+grep --color=always -rnH "$2" $line
+done < $1
+
+

@@ -1,0 +1,12 @@
+查询自己发了哪些patch
+
+git log --name-status --author=yida.yu@tcl.com --format=%\n------------------------------------------------------------------------------------%\nCommit-ID:%H --no-merges > /local/ydyu-patch
+
+
+
+如FAQ提到SDIO供电电压会根据硬件设计有所不同，有1.8v,2.8v.
+1.8v, 2.8v clk_drv/cmd_drv/dat_drv所表示的驱动电流也不一样，
+如2.8v, clk_drv/cmd_drv/dat_drv 值为0，对应FAQ04104 表格中12mA,
+1.8v， clk_drv/cmd_drv/dat_drv 值为4时，对应FAQ04104 表格中12.8mA.
+
+不同SDIO供电电压可以按照FAQ03829提到的配置进行设定。

@@ -1,0 +1,23 @@
+#!/bin/sh
+adb remount &&
+#adb push ./out/target/product/jrdsz89_we_jb2/system/lib/libcameraservice.so /system/lib/  &&
+#adb shell chmod 644 /system/lib/libcameraservice.so &&
+
+#adb push ./out/target/product/diablox/system/lib/libcam.client.so /system/lib/  &&
+#adb shell chmod 644 /system/lib/libcam.client.so &&
+
+adb push ./out/target/product/diablox/system/bin/screenshot /system/bin/  &&
+adb shell chown root:shell /system/bin/screenshot &&
+adb shell chmod 755 /system/bin/screenshot
+
+#adb push ./out/target/product/diablox/system/lib/libcam.campipe.so /system/lib/  &&
+#adb shell chmod 644 /system/lib/libcam.campipe.so &&
+
+#adb push ./out/target/product/diablox/system/lib/libcam.camshot.so /system/lib/  &&
+#adb shell chmod 644 /system/lib/libcam.camshot.so &&
+
+#adb push ./out/target/product/diablox/system/lib/libcam.camadapter.so /system/lib/  &&
+#adb shell chmod 644 /system/lib/libcam.camadapter.so &&
+
+#adb shell reboot
+

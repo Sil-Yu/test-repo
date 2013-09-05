@@ -1,0 +1,18 @@
+#! /bin/bash
+#adb shell "(cat /proc/log_ts)"
+#if [$1 -eq 0];
+#then
+#echo "input para is NULL"
+#else
+#echo `$1`
+#fi
+adb shell "(ps)"
+echo "set log_ts = 1"
+echo "/proc/log_ts is "`adb shell "(cat /proc/log_ts)"`
+adb shell "(echo 1 >  /proc/log_ts)"
+
+echo "logcat -b main -v thread"
+echo "cat /proc/kmsg"
+
+echo "Catching log now, Ctrl+C to abort"
+adb shell "(logcat -b main -v threadtime & cat /proc/kmsg)" > $1

@@ -1,0 +1,39 @@
+#! /bin/bash
+#show Start time
+echo -e "\e[1;32m" #Change color to LightGreen
+declare timeS=`date +%F,%T`
+declare -i timeSs=`date +%s`
+echo -e "$timeS Start,\e[0m"
+
+#start build
+echo -e "\e[1;36m" #Change color to LightBlue 
+echo "make new MTK kernel and bootimage"
+./makeMtk n k && ./makeMtk bootimage
+
+#sleep 10 #test
+
+#show End time
+echo -e "\e[1;32m" #Change color to LightGreen
+declare timeE=`date +%F,%T`
+declare -i timeEs=`date +%s`
+echo -e "$timeE End.\e[0m"
+echo -e "\e[1;31mFrom \e[1;32m$timeS \e[1;31mTo \e[1;32m$timeE\e[0m"
+
+#calc build-cost
+let "seconds_cost_time = ($timeEs - $timeSs)%60"
+let "minutes_cost_time = ($timeEs - $timeSs)/60"
+echo -e "\e[1;31mCost: $minutes_cost_time min $seconds_cost_time sec\e[0m"
+
+function change_color
+{
+    echo -e "\e[1;$1m"
+}
+function reset_color
+{
+    echo -e "\e[0m"
+}
+function test
+{
+./makeMtk -t -o=ENABLE_USER2ENG=true,TARGET_BUILD_VARIANT=eng,JRD_GEMINI_SUPPORT=yes,JRD_CU_SUPPORT=no,JRD_WIFILNA_SUPPORT=yes,JRD_ROOT_SUPPORT=yes diablox n k &&
+./makeMtk -t -o=ENABLE_USER2ENG=true,TARGET_BUILD_VARIANT=eng,JRD_GEMINI_SUPPORT=yes,JRD_CU_SUPPORT=no,JRD_WIFILNA_SUPPORT=yes,JRD_ROOT_SUPPORT=yes diablox bootimage
+}

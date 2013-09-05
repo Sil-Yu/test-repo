@@ -1,0 +1,11 @@
+#!/bin/sh
+./makeMtk n k && ./makeMtk bootimage &&
+./makeMtk mm ./mediatek/hardware/camera/ &&
+./makeMtk mm ./frameworks/opt/emoji/ &&
+./makeMtk mm ./external/freetype/ &&
+./makeMtk mm ./external/giflib/ && 
+./makeMtk mm ./external/webp &&
+./makeMtk mm ./external/libpng &&
+./makeMtk mm ./external/skia/ &&
+./makeMtk mm ./mediatek/platform/mt6589/hardware/camera
+

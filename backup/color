@@ -1,0 +1,31 @@
+#! /bin/bash
+#
+
+declare time=`date +%F,%T`
+show_color()
+{
+for i in {1..9}
+do 
+    declare time=`date +%F,%T`
+    echo -e "\e[1;"$i"m $time No.$i: 0OIiLl1~!@#$%^&*()<>?:{} \e[0m"
+    sleep 0.2
+done
+
+for i in {30..47}
+do 
+    declare time=`date +%F,%T`
+    echo -e "\e[1;"$i"m $time No.$i: 0OIiLl1~!@#$%^&*()<>?:{} \e[0m"
+    sleep 0.2
+done
+}
+
+change_color()
+{
+    echo test
+}
+#pwd
+#whoami
+show_color
+
+
+

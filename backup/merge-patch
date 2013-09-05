@@ -1,0 +1,14 @@
+#!/bin/sh
+while read line
+do
+
+echo -e "\e[1;32m Compare Start:"
+
+echo -e "A: \e[1;36m $1$line \e[32m"
+echo -e "B: \e[1;36m $line " 
+
+kdiff3 --auto "$1$line" "$line" --out "$1$line"
+
+echo -e "\e[1;32m End. \e[0m" 
+
+done < $2

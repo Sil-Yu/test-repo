@@ -1,0 +1,22 @@
+#!/bin/sh
+echo build CList...
+find ./mediatek/ -name *.c > CList
+find ./kernel/ -name *.c >> CList
+find ./frameworks/ -name *.c >> CList
+
+echo build CPPList...
+find ./mediatek/ -name *.cpp > CPPList
+find ./kernel/ -name *.cpp >> CPPList
+find ./frameworks/ -name *.cpp >> CPPList
+
+echo build HEADList...
+find ./mediatek/ -name *.h > HEADList
+find ./kernel/ -name *.h >> HEADList
+find ./frameworks/ -name *.h >> HEADList
+
+echo build MList...
+find ./mediatek/ -name *.mk > MList
+find ./kernel/ -name *.mk >> MList
+find ./frameworks/ -name *.mk >> MList
+
+echo Done.
